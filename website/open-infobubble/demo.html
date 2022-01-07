@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+    <title>Opening an Infobubble on a Mouse Click</title>
+    <link rel="stylesheet" type="text/css" href="https://js.api.here.com/v3/3.1/mapsjs-ui.css" />
+    <link rel="stylesheet" type="text/css" href="demo.css" />
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+    <link rel="stylesheet" type="text/css" href="../template.css" />
+    <script type="text/javascript" src='../test-credentials.js'></script>    
+    <script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-core.js"></script>
+    <script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-service.js"></script>
+    <script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-ui.js"></script>
+    <script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-mapevents.js"></script>
+  </head>
+  <body id="markers-on-the-map">
+
+
+     <div class="page-header">
+        <h1>Population Distribution of Essen city</h1>
+        <p>Analysis of each area in essen and its ATMs per 100000 adults</p>
+    </div>
+
+<iframe title="Essen Population" aria-label="Map" id="datawrapper-chart-GOBxb" src="https://datawrapper.dwcdn.net/GOBxb/1/" scrolling="no" frameborder="0" style="width: 0; min-width: 100% !important; border: none;" height="757"></iframe><script type="text/javascript">!function(){"use strict";window.addEventListener("message",(function(a){if(void 0!==a.data["datawrapper-height"])for(var e in a.data["datawrapper-height"]){var t=document.getElementById("datawrapper-chart-"+e)||document.querySelector("iframe[src*='"+e+"']");t&&(t.style.height=a.data["datawrapper-height"][e]+"px")}}))}();
+</script>
+
+    <div class="page-header">
+        <h1>Short Info Bubble</h1>
+        <p>Info bubble describing information about ATM and Population in essen city</p>
+    </div>
+    <p>This example displays a map with markers showing the position of the Areas in 
+      of <b>Essen City</b> with the population and count of ATM </p>
+    <div id="map"></div>
+   
+    <script type="text/javascript" src='demo.js'></script>
+
+<h1>Population Distribution Of essen city</h1>
+
+<div id="piechart"></div>
+
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+<script type="text/javascript">
+// Load google charts
+google.charts.load('current', {'packages':['corechart']});
+google.charts.setOnLoadCallback(drawChart);
+
+// Draw the chart and set the chart values
+function drawChart() {
+  var data = google.visualization.arrayToDataTable([
+  ['Area', 'Population'],
+  ['Ruhr Halbinsal', 9],
+  ['Steele Essen', 12],
+  ['Ruttenscheid', 9],
+  ['Werden Essen', 9],
+  ['Alten Essen', 10],
+  ['Borbeck', 14],
+  ['Katernberg', 9],
+  ['Essen West', 17],
+  ['Stadt Mitte', 11]
+]);
+
+  // Optional; add a title and set the width and height of the chart
+  var options = {'title':'My Average Day', 'width':550, 'height':400};
+
+  // Display the chart inside the <div> element with id="piechart"
+  var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+  chart.draw(data, options);
+}
+</script>
+  </body>
+</html>
